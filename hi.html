@@ -3,10 +3,51 @@
     <head>
         <meta charset="utf-8">
         <title>Hello world!</title>
+        <style>
+            div{
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                background: red;
+                animation: slide 2s forwards infinite;
+            }
+            @keyframes slide{
+                0%{
+                    left: 0%;
+                }
+                50%{
+                    left: 50%;
+                    background: green;
+                }
+                100%{
+                    left: 0%;
+                    background: blue;
+                }
+            }
+            button{
+                position: absolute;
+                top: 30%;
+                border-radius: 30px;
+            }
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded',()=>{
+                const div = document.querySelector('div')
+                div.style.animationPlayState = "paused"
+
+                document.querySelector('button').onclick = ()=>{
+                    if(div.style.animationPlayState === "paused"){
+                        div.style.animationPlayState = "running"
+                    }else{
+                        div.style.animationPlayState = "paused"
+                    }
+                }
+                
+            })
+        </script>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <p>This is my first github repo</p>
-        <P>This is my second change repo</P>
+        <div></div>
+        <button>Click me!</button>
     </body>
 </html>
